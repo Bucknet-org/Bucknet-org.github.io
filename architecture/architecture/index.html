@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Architecture - Bucknet Org</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Architecture";
+        var mkdocs_page_input_path = "architecture/architecture.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Bucknet Org
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Intro</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Consensus</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../consensus/history/">History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../consensus/architecture_overview/">Architecture Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../consensus/por/">Proof of Reputation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Architecture</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#high-level-architecture">High-Level Architecture</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#layer-design">Layer Design</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#engagement-layer">Engagement Layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#identity-layer">Identity Layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#data-layer">Data Layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#computation-layer-tee">Computation Layer (TEE):</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#execution-layer">Execution Layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#settlement-layer">Settlement Layer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#consensus-layer">Consensus Layer</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Bucknet Org</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Architecture</li>
+      <li class="breadcrumb-item active">Architecture</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="the-trustless-reputation-system-architecture-design">The Trustless Reputation System Architecture Design<a class="headerlink" href="#the-trustless-reputation-system-architecture-design" title="Permanent link">&para;</a></h2>
+<h3 id="high-level-architecture">High-Level Architecture<a class="headerlink" href="#high-level-architecture" title="Permanent link">&para;</a></h3>
+<p>The Trustless Reputation system (TRs) architecture is designed in a modular architecture with lots of benefits along the way such as flexibility, scalability, reusability, and maintainability based on layered architecture.</p>
+<p>The TRs is divided into 7 layers. Each of these is broken down into smaller units or components following the same architecture:</p>
+<ul>
+<li>
+<p><strong>Engagement Layer</strong>: An entry point for all parties</p>
+</li>
+<li>
+<p><strong>Identity Layer</strong>: universal identity for both Web2 and Web3</p>
+</li>
+<li>
+<p><strong>Data Layer</strong>: users' data stored by themselves or other parties such as data providers, IPFS, etc.</p>
+</li>
+<li>
+<p><strong>Computation Layer (TEE)</strong>: off-chain trusted computation environment</p>
+</li>
+<li>
+<p><strong>Execution Layer</strong>: The layer where transactions and state changes are initially processed</p>
+</li>
+<li>
+<p><strong>Settlement Layer</strong>: The layer where the execution of transactions is verified and disputes are resolved</p>
+</li>
+<li>
+<p><strong>Consensus Layer</strong>: all full nodes reach a consensus on the validity of state transitions</p>
+</li>
+</ul>
+<p><img alt="Trs Architecture" src="img/TRs_architecture.png" /></p>
+<h3 id="layer-design">Layer Design<a class="headerlink" href="#layer-design" title="Permanent link">&para;</a></h3>
+<h4 id="engagement-layer">Engagement Layer<a class="headerlink" href="#engagement-layer" title="Permanent link">&para;</a></h4>
+<p>The engagement layer is a crucial component of software architecture that focuses on creating a seamless and interactive user experience. It serves as the interface between the user and the system, enabling effective communication, decision-making, and task accomplishment. The engagement layer is responsible for presenting information, facilitating user input, and providing feedback, ultimately driving user engagement and adoption.</p>
+<p>Goals of the Engagement Layer:</p>
+<ul>
+<li><strong>Improve User Adoption</strong>: Make the system easy to use, reducing barriers to entry and increasing user acceptance.</li>
+<li><strong>Enhance User Experience</strong>: Create an engaging, intuitive, and responsive interface that delights users and encourages continued use.</li>
+<li><strong>Increase Productivity</strong>: Streamline workflows, simplify tasks, and provide efficient tools to maximize user productivity.</li>
+<li><strong>Provide Personalization</strong>: Tailor the experience to individual users' needs, preferences, and behaviors.</li>
+<li><strong>Foster Engagement</strong>: Encourage users to interact with the system, explore its features, and derive value from it.</li>
+</ul>
+<p>There are 3 major parties in the engagement layer:</p>
+<ul>
+<li>
+<p><strong>User</strong>: typical user</p>
+</li>
+<li>
+<p><strong>Data Consumer and Data Provider</strong>: A data consumer is an individual, system, organization, or entity that receives or utilizes data in order to perform specific tasks or make decisions. Data consumers can be internal entities within an organization, such as data analysts and business intelligence teams, or external entities, such as customers, partners, or regulatory bodies.</p>
+<p><strong>A data provider</strong> is any entity that organizes and provides access to various users’ types of data on behalf of users’ permission. Data providers can be from Web2 or Web3 such as Bank, Social Media, Indexer, Cloud Storage, Data Availability, etc.</p>
+</li>
+<li>
+<p><strong>Validator</strong>: A validator is a person or program that checks the accuracy, completeness, and consistency of data. Beyond validating the user’s source of truth in terms of reputation, validators reach a consensus on the validity of state transitions. </p>
+</li>
+</ul>
+<h4 id="identity-layer">Identity Layer<a class="headerlink" href="#identity-layer" title="Permanent link">&para;</a></h4>
+<p>According to the Zero Trust Architecture, the identity Layer refers to the component or module responsible for managing and verifying the identity of users, devices, or systems. This layer is critical in ensuring secure authentication, authorization, and access control.</p>
+<p>The Identity Layer typically performs the following functions:</p>
+<ul>
+<li><strong>Identity management</strong>: Managing user identities, including creation, deletion, and modification.</li>
+<li><strong>Authentication</strong>: Verifying the identity of users, devices, or systems through various authentication mechanisms (e.g., passwords, biometrics, tokens).</li>
+<li><strong>Authorization</strong>: Determining the access levels and permissions for authenticated entities.</li>
+<li><strong>Account management</strong>: Managing user accounts, including account provisioning and source of truth about users.</li>
+</ul>
+<p>Each entity owns an identity-aggregated NFT which is the individual-authenticated aggregation of web2 and web3 identities to NFTs (SBTs included). By binding multiple identities, aggregated and compossible identity information can be verified, resulting in more beneficial on-chain scenarios for individuals, such as self-authentication, social overlapping, commercial value generation from user targeting, etc.</p>
+<h4 id="data-layer">Data Layer<a class="headerlink" href="#data-layer" title="Permanent link">&para;</a></h4>
+<p>In a trustless reputation system, the data layer is a fundamental component that ensures the integrity, availability, and verifiability of the reputation data across a decentralized network. A trustless environment operates without the need for a central authority or trusted intermediary, relying instead on cryptographic techniques and decentralized consensus mechanisms to secure and validate transactions and interactions. Here's how the data layer in a trustless reputation system typically functions:</p>
+<ul>
+<li>
+<p><strong>Decentralized Storage</strong>: Reputation data is stored across multiple nodes in the network, often using distributed ledger technology like blockchain. This ensures that the data is not controlled by any single entity and is resilient to censorship, downtime, and data loss.</p>
+</li>
+<li>
+<p><strong>Immutable Records</strong>: Once reputation data is recorded on the blockchain, it becomes immutable. This means it cannot be altered or deleted without the consensus of the network, which provides an audit trail and historical record of reputation scores.</p>
+</li>
+<li>
+<p><strong>Transparent and Verifiable</strong>: All participants in the network can access and verify the reputation data. The transparency of the system allows users to trust the outcomes without relying on a third party. Verifiability ensures that users can independently check the validity of the reputation information.</p>
+</li>
+<li>
+<p><strong>Smart Contracts</strong>: Reputation logic can be encoded into smart contracts, which automatically execute reputation-related actions or transactions without the need for intermediaries. For example, a smart contract might release funds to a service provider after verification of successful service delivery, based on their reputation score.</p>
+</li>
+<li>
+<p><strong>Consensus Mechanisms</strong>: The network uses consensus algorithms to agree on the state of the reputation data. This ensures that all nodes have a synchronized view of the system, which is essential for maintaining a consistent and reliable reputation score.</p>
+</li>
+<li>
+<p><strong>Incentive Mechanisms</strong>: To encourage honest participation and discourage malicious behavior, the system typically includes incentives for users who contribute to the reputation data layer. This can include rewarding node operators who maintain the network, participants who provide honest reviews, or those who identify and report fraudulent activity.</p>
+</li>
+<li>
+<p><strong>Data Privacy</strong>: While transparency is important, privacy considerations must also be addressed. Reputation systems often anonymize user data to protect the privacy of individuals while still allowing for the assessment of their reputational score.</p>
+</li>
+<li>
+<p><strong>Data Integrity</strong>: Cryptographic techniques such as hash functions and digital signatures are used to ensure that reputation data has not been tampered with. These techniques allow nodes to detect and reject any altered or corrupted data.</p>
+</li>
+<li>
+<p><strong>Real-time Updates</strong>: The system may support real-time updates to reputation scores, allowing for dynamic and responsive reputation assessment. It is critical for users to make informed decisions based on the latest data.</p>
+</li>
+<li>
+<p><strong>Scalability</strong>: To handle a large number of transactions and reputation assessments, the data layer must be scalable. Technologies like sharding, layer 2 solutions, or sidechains can help to increase the capacity of the system.</p>
+</li>
+<li>
+<p><strong>Interoperability</strong>: For a trustless reputation system to be widely adopted, it should be interoperable with other systems and blockchains. This allows for a broader range of uses and the integration of various services and applications.</p>
+</li>
+<li>
+<p><strong>Governance</strong>: A clear governance framework is needed to manage changes to the reputation system and resolve disputes. This is typically achieved through decentralized autonomous organizations (DAOs) or similar structures where stakeholders can propose and vote on decisions.</p>
+</li>
+</ul>
+<h4 id="computation-layer-tee">Computation Layer (TEE):<a class="headerlink" href="#computation-layer-tee" title="Permanent link">&para;</a></h4>
+<p>A Trusted Execution Environment (TEE) is a secure area of a device's processor that provides a protected environment for running sensitive code and processing sensitive data. It ensures that the code and data within the TEE are isolated from the rest of the device, making it difficult for unauthorized parties to access or tamper with them.</p>
+<p>Key components of a TEE include:</p>
+<ul>
+<li><strong>Secure memory</strong>: A TEE provides a separate memory space for storing sensitive data, which is isolated from the device's main memory.</li>
+<li><strong>Secure processor</strong>: A TEE uses a dedicated processor or a special mode of the main processor to execute sensitive code. This prevents unauthorized access or tampering with the code while it's being executed.</li>
+<li><strong>Security algorithms</strong>: A TEE uses cryptographic algorithms to protect data and code within a secure environment. This includes techniques such as encryption, authentication, and secure key management.</li>
+<li><strong>Access control</strong>: A TEE implements strict access control policies to ensure that only authorized apps and users can access the secure environment and its resources.</li>
+</ul>
+<p>A computation layer, also known as a computational layer, is a logical layer in a software or systems architecture that is responsible for performing computations or processing tasks. It typically sits above lower-level layers that handle input/output and data storage, and above higher-level layers that provide a user interface or handle application-specific logic.</p>
+<p>The computation layer can include a variety of components, such as:</p>
+<ul>
+<li><strong>Mathematical libraries</strong>: for performing mathematical operations and algorithms.</li>
+<li><strong>Data processing modules</strong>: for cleaning, transforming, and otherwise processing data.</li>
+<li><strong>Machine learning algorithms</strong>: for making predictions or classifications based on data.</li>
+<li><strong>Simulation and modeling tools</strong>: for simulating or modeling real-world systems or processes.</li>
+</ul>
+<h4 id="execution-layer">Execution Layer<a class="headerlink" href="#execution-layer" title="Permanent link">&para;</a></h4>
+<p>The execution layer serves a critical role in ensuring that transactions and interactions are conducted securely and fairly without the need for a trusted third party. Here's how this type of execution layer typically works and functions.</p>
+<p>Key Components and Features:</p>
+<ul>
+<li>
+<p><strong>Smart Contracts</strong>: These are self-executing contracts with the terms of the agreement directly written into code. They run on the blockchain and automatically enforce and execute the terms of a trustless agreement when predetermined conditions are met.</p>
+</li>
+<li>
+<p><strong>Consensus Mechanisms</strong>: The execution layer uses consensus algorithms to validate transactions and agreements across the network, making sure that all participants agree on the state of the system.</p>
+</li>
+<li>
+<p><strong>Namespace and Identity Management</strong>: To foster trustless interactions, the execution layer must accurately verify and manage identities or pseudonyms of the participants without revealing personal identifying information.</p>
+</li>
+<li>
+<p><strong>Economic Incentives</strong>: Since there is no central authority, the execution layer must incorporate mechanisms to incentivize honest behavior and penalize dishonesty (e.g., through token rewards for positive contributions and slashing for malicious activities).</p>
+</li>
+<li>
+<p><strong>Decentralized Storage</strong>: A robust execution layer ensures that data is stored across the network to prevent tampering and censorship, often using technologies like the IPFS.</p>
+</li>
+<li>
+<p><strong>Oracles Integration</strong>: To interact with external data, the execution layer may include oracles—trusted nodes or decentralized services that provide verified data to smart contracts.</p>
+</li>
+<li>
+<p><strong>Event Handling and Triggering</strong>: The event system in the execution layer notifies participants or smart contracts when certain actions or transactions occur, ensuring timely and relevant automated responses within the system.</p>
+</li>
+<li>
+<p><strong>Validation and Execution of Transactions</strong>: The execution layer validates incoming transactions according to the network's rules and executes them if they are correct, updating the network's distributed ledger accordingly.</p>
+</li>
+<li>
+<p><strong>Reputation Algorithms</strong>: These algorithms calculate and manage the trust scores of participants based on their behavior and interactions within the network. They are key in maintaining a healthy and trust-based ecosystem on the platform.</p>
+</li>
+<li>
+<p><strong>Peer Verification</strong>: Peers in the network frequently perform checks on each other's behavior, such as completing tasks or maintaining service levels, contributing to the overall trustworthiness of the network.</p>
+</li>
+</ul>
+<h4 id="settlement-layer">Settlement Layer<a class="headerlink" href="#settlement-layer" title="Permanent link">&para;</a></h4>
+<p>A settlement layer is a mechanism that facilitates the resolution of disputes and the settlement of transactions in a trustless reputation system. It's a layer that sits on top of the underlying reputation system, providing a way to resolve conflicts and update reputation scores in a fair and transparent manner.</p>
+<p>Key functions of a settlement layer:</p>
+<ul>
+<li><strong>Dispute resolution</strong>: The settlement layer provides a mechanism for resolving disputes between parties in the reputation system. This can include resolving conflicts related to reputation scores, transaction outcomes, or other issues that may arise.</li>
+<li><em>Reputation score updates</em>: The settlement layer is responsible for updating reputation scores based on the outcome of disputes or transactions. This ensures that reputation scores accurately reflect the behavior and performance of entities in the system.</li>
+<li><strong>Incentivization</strong>: The settlement layer can provide incentives for entities to behave honestly and maintain a good reputation. For example, entities with high reputation scores may receive rewards or benefits, while those with low scores may face penalties.</li>
+<li><strong>Security and trust</strong>: The settlement layer ensures the security and trustworthiness of the reputation system by providing a decentralized and transparent mechanism for resolving disputes and updating reputation scores.</li>
+</ul>
+<p>Design considerations for a settlement layer:</p>
+<ul>
+<li><strong>Decentralization</strong>: The settlement layer should be decentralized to prevent any single entity from controlling the resolution of disputes or the updating of reputation scores.</li>
+<li><strong>Transparency</strong>: The settlement layer should provide transparent and auditable records of all disputes and reputation score updates.</li>
+<li><strong>Fairness</strong>: The settlement layer should ensure that disputes are resolved fairly and impartially, without bias towards any particular entity.</li>
+<li><strong>Scalability</strong>: The settlement layer should be designed to handle a large volume of disputes and reputation score updates efficiently.</li>
+<li><strong>Incentive alignment</strong>: The settlement layer should be designed to align incentives with honest behavior, ensuring that entities are motivated to maintain a good reputation.</li>
+</ul>
+<h4 id="consensus-layer">Consensus Layer<a class="headerlink" href="#consensus-layer" title="Permanent link">&para;</a></h4>
+<p>In a trustless reputation system, a consensus layer plays a crucial role in achieving consensus among different nodes or participants, despite the absence of a central authority. This is achieved through a consensus mechanism, which ensures all participants agree on the state and validity of transactions or information. Here's a brief overview of how the consensus layer works in a trustless reputation system:</p>
+<ul>
+<li>
+<p><strong>Transaction Proposal</strong>: A user initiates a transaction, such as posting a review or rating, that needs to be added to the system.</p>
+</li>
+<li>
+<p><strong>Validation</strong>: Following the proposal, nodes validate the genuineness and legitimacy of the transaction, checking for potential fraud, spam, or other malicious activities.</p>
+</li>
+<li>
+<p><strong>Reputation Calculation</strong>: Once the transaction is deemed valid, each node in the system calculates the reputation scores for the involved parties based on their history of interactions, the number of reviews, and the overall ratings received. This reputation score reflects the trustworthiness of the users.</p>
+</li>
+<li>
+<p><strong>Consensus Mechanism</strong>: After calculating the reputation scores, nodes employ a consensus mechanism to agree on the updated state of the system, including the reputation scores and the transaction itself. In a trustless reputation system, common consensus mechanisms include Proof of Work (PoW), Proof of Stake (PoS), and Byzantine Fault Tolerance (BFT).</p>
+</li>
+<li>
+<p><strong>Record Update</strong>: Once a consensus is reached, the new transaction (with the updated reputation scores) is added to the system, and all nodes are updated accordingly. This process is transparent, immutable, and maintains the integrity of the trustless reputation system.</p>
+</li>
+<li>
+<p><strong>Reward Distribution</strong>: To incentivize participants and prevent malicious behaviors, some consensus mechanisms (e.g., PoS and DPoS) typically distribute rewards to nodes that contribute to maintaining the security and integrity of the system.</p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../consensus/por/" class="btn btn-neutral float-left" title="Proof of Reputation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../consensus/por/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
