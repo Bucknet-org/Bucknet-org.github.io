@@ -55,9 +55,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#assessment">Assessment</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#consensus-group">Consensus group</a>
+    <li class="toctree-l2"><a class="reference internal" href="#consensus_group">Consensus group</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#pbft-in-consensus-group">PBFT in consensus group</a>
+    <li class="toctree-l2"><a class="reference internal" href="#pbft_in_consensus_group">PBFT in consensus group</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#incentive">Incentive</a>
     </li>
@@ -95,8 +95,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="por-for-a-trustless-reputation-system">PoR for A Trustless Reputation System<a class="headerlink" href="#por-for-a-trustless-reputation-system" title="Permanent link">&para;</a></h2>
-<h3 id="assessment">Assessment<a class="headerlink" href="#assessment" title="Permanent link">&para;</a></h3>
+                <h3 id="por_for_a_trustless_reputation_system">PoR for A Trustless Reputation System<a class="headerlink" href="#por_for_a_trustless_reputation_system" title="Permanent link">#</a></h3>
+<h4 id="assessment">Assessment<a class="headerlink" href="#assessment" title="Permanent link">#</a></h4>
 <p>Assessment can refer to a variety of activities, including evaluating the identity reputation, data validation, and authenticity of digital identities. The assessment process involves verifying the integrity and accuracy of data stored on the system, as well as ensuring that the network and its nodes are functioning as intended.</p>
 <p>Here is some major assessment in a trustless reputation system:</p>
 <ul>
@@ -104,12 +104,12 @@
 <li><strong>Identity Verification</strong>: Verifying the authenticity of digital identities.</li>
 <li><strong>Reputation Assessment</strong>: Evaluating the historical honest behaviors in the form of a reputation score. </li>
 </ul>
-<h3 id="consensus-group">Consensus group<a class="headerlink" href="#consensus-group" title="Permanent link">&para;</a></h3>
+<h4 id="consensus_group">Consensus group<a class="headerlink" href="#consensus_group" title="Permanent link">#</a></h4>
 <p>In order to prevent potential malicious behaviors and promote fairness and contribution to the system, consensus nodes in consensus group are randomly selected based on reputation, which means all consensus nodes have equal opportunity to engage in the consensus process regardless of its reputation. Probability of a consensus node selected in a consensus group depends on its current reputation Cu_R and cumulative reputation Cl_R which measures a node’s continuous contribution to blockchain, and Cu_R is to promote fairness of nodes selected in consensus group.</p>
 <pre><code class="language-math">p(i) = (α * Cl_R(i) + β * Cu_R(i)) / (∑Cl_R(i) + ∑Cu_R(i))
 </code></pre>
 <p>Where α+β=1,α&gt;β&gt;0</p>
-<p><img alt="Consensus" src="img/consensus.png" /></p>
+<p><img alt="Consensus" src="../../img/consensus.png" /></p>
 <p>To avoid potential attacks and centralization, cumulative reputation and current reputation of a consensus group should meet the following requirements:</p>
 <ul>
 <li>Average of cumulative reputation of a consensus group 1/N * ∑Cl_R(i) should be no less than average cumulative reputation of all candidate consensus nodes 1/n * ∑Cl_R(i)</li>
@@ -126,14 +126,14 @@
 <li>To balance performance and scalability, nodes of a consensus group should be no less than n if n ≥ 16 and 4 if n &lt; 16 [4]</li>
 <li>To promote fairness, no participant node should create the majority of the blocks. The same node should not be selected in a consensus group to process two consecutive blocks. Besides, α should be larger than β.</li>
 </ul>
-<h3 id="pbft-in-consensus-group">PBFT in consensus group<a class="headerlink" href="#pbft-in-consensus-group" title="Permanent link">&para;</a></h3>
+<h4 id="pbft_in_consensus_group">PBFT in consensus group<a class="headerlink" href="#pbft_in_consensus_group" title="Permanent link">#</a></h4>
 <p><strong>PBFT</strong> has an advantage of performance and efficiency with a few nodes. To improve performance, the size of consensus group committees should be limited. The minimum number of nodes in the consensus group is confined to n (n ≥16). In the consensus group, PBFT is run to generate a new candidate block. Detailed procedures are as follows:</p>
 <ul>
 <li>In each consensus round, nodes in the consensus group elect a single leader node as block proposer.</li>
 <li>The leader node proposes a candidate block with a set of transactions. Then broadcast the candidate block to other nodes in the consensus group.</li>
 <li>When receiving the candidate block, other nodes in the consensus group validate and approve the block. If the candidate block gets supermajority approval (e.g., 2/3), it will be broadcasted to the entire blockchain network.</li>
 </ul>
-<h3 id="incentive">Incentive<a class="headerlink" href="#incentive" title="Permanent link">&para;</a></h3>
+<h4 id="incentive">Incentive<a class="headerlink" href="#incentive" title="Permanent link">#</a></h4>
 <p>Reward is to economically incentive consensus nodes to behave honestly. The first incentive is block reward in forms of tangible asset (tokens), all consensus nodes selected in a consensus group successfully create a new block can get reward. And the second is reputation (intangible and non-transferable) which is changed over stages:</p>
 <ul>
 <li>
@@ -149,7 +149,7 @@
 <p><strong>Prevention of over-control</strong>. To prevent potential centralization and promote fairness, consensus nodes are not allowed to propose two consecutive blocks. Thus, the increase of reputation in consensus nodes is relatively evenly.</p>
 </li>
 </ul>
-<h3 id="punishment">Punishment<a class="headerlink" href="#punishment" title="Permanent link">&para;</a></h3>
+<h4 id="punishment">Punishment<a class="headerlink" href="#punishment" title="Permanent link">#</a></h4>
 <p>Punishment mechanism is adopted to penalize bad behaviors. There are two kinds of punishment, including collateral and reputation, which can be on all nodes in the consensus group or the node with malicious behaviors. If nodes in the consensus group behave maliciously, and other honest nodes in the consensus group do not detect malicious behaviors, then all nodes in the consensus group should be penalized. If honest nodes in the consensus group detect malicious behaviors of malicious nodes, only nodes with malicious behaviors will be penalized. Malicious behaviors will have a negative impact on reputation Cl_R = Cl_R / 2. The cumulative reputation will be halved and current reputation will be reset to 0, as Cu_R = 0</p>
               
             </div>

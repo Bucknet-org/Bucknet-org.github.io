@@ -58,23 +58,23 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">Architecture</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#high-level-architecture">High-Level Architecture</a>
+    <li class="toctree-l2"><a class="reference internal" href="#high-level_architecture">High-Level Architecture</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#layer-design">Layer Design</a>
+    <li class="toctree-l2"><a class="reference internal" href="#layer_design">Layer Design</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#engagement-layer">Engagement Layer</a>
+    <li class="toctree-l3"><a class="reference internal" href="#engagement_layer">Engagement Layer</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#identity-layer">Identity Layer</a>
+    <li class="toctree-l3"><a class="reference internal" href="#identity_layer">Identity Layer</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#data-layer">Data Layer</a>
+    <li class="toctree-l3"><a class="reference internal" href="#data_layer">Data Layer</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#computation-layer-tee">Computation Layer (TEE):</a>
+    <li class="toctree-l3"><a class="reference internal" href="#computation_layer_tee">Computation Layer (TEE):</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#execution-layer">Execution Layer</a>
+    <li class="toctree-l3"><a class="reference internal" href="#execution_layer">Execution Layer</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#settlement-layer">Settlement Layer</a>
+    <li class="toctree-l3"><a class="reference internal" href="#settlement_layer">Settlement Layer</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#consensus-layer">Consensus Layer</a>
+    <li class="toctree-l3"><a class="reference internal" href="#consensus_layer">Consensus Layer</a>
     </li>
         </ul>
     </li>
@@ -105,8 +105,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="the-trustless-reputation-system-architecture-design">The Trustless Reputation System Architecture Design<a class="headerlink" href="#the-trustless-reputation-system-architecture-design" title="Permanent link">&para;</a></h2>
-<h3 id="high-level-architecture">High-Level Architecture<a class="headerlink" href="#high-level-architecture" title="Permanent link">&para;</a></h3>
+                <h3 id="the_trustless_reputation_system_architecture_design">The Trustless Reputation System Architecture Design<a class="headerlink" href="#the_trustless_reputation_system_architecture_design" title="Permanent link">#</a></h3>
+<h4 id="high-level_architecture">High-Level Architecture<a class="headerlink" href="#high-level_architecture" title="Permanent link">#</a></h4>
 <p>The Trustless Reputation system (TRs) architecture is designed in a modular architecture with lots of benefits along the way such as flexibility, scalability, reusability, and maintainability based on layered architecture.</p>
 <p>The TRs is divided into 7 layers. Each of these is broken down into smaller units or components following the same architecture:</p>
 <ul>
@@ -132,9 +132,9 @@
 <p><strong>Consensus Layer</strong>: all full nodes reach a consensus on the validity of state transitions</p>
 </li>
 </ul>
-<p><img alt="Trs Architecture" src="img/TRs_architecture.png" /></p>
-<h3 id="layer-design">Layer Design<a class="headerlink" href="#layer-design" title="Permanent link">&para;</a></h3>
-<h4 id="engagement-layer">Engagement Layer<a class="headerlink" href="#engagement-layer" title="Permanent link">&para;</a></h4>
+<p><img alt="Trs Architecture" src="../../img/TRs_architecture.png" /></p>
+<h4 id="layer_design">Layer Design<a class="headerlink" href="#layer_design" title="Permanent link">#</a></h4>
+<h5 id="engagement_layer">Engagement Layer<a class="headerlink" href="#engagement_layer" title="Permanent link">#</a></h5>
 <p>The engagement layer is a crucial component of software architecture that focuses on creating a seamless and interactive user experience. It serves as the interface between the user and the system, enabling effective communication, decision-making, and task accomplishment. The engagement layer is responsible for presenting information, facilitating user input, and providing feedback, ultimately driving user engagement and adoption.</p>
 <p>Goals of the Engagement Layer:</p>
 <ul>
@@ -157,7 +157,7 @@
 <p><strong>Validator</strong>: A validator is a person or program that checks the accuracy, completeness, and consistency of data. Beyond validating the user’s source of truth in terms of reputation, validators reach a consensus on the validity of state transitions. </p>
 </li>
 </ul>
-<h4 id="identity-layer">Identity Layer<a class="headerlink" href="#identity-layer" title="Permanent link">&para;</a></h4>
+<h5 id="identity_layer">Identity Layer<a class="headerlink" href="#identity_layer" title="Permanent link">#</a></h5>
 <p>According to the Zero Trust Architecture, the identity Layer refers to the component or module responsible for managing and verifying the identity of users, devices, or systems. This layer is critical in ensuring secure authentication, authorization, and access control.</p>
 <p>The Identity Layer typically performs the following functions:</p>
 <ul>
@@ -167,7 +167,7 @@
 <li><strong>Account management</strong>: Managing user accounts, including account provisioning and source of truth about users.</li>
 </ul>
 <p>Each entity owns an identity-aggregated NFT which is the individual-authenticated aggregation of web2 and web3 identities to NFTs (SBTs included). By binding multiple identities, aggregated and compossible identity information can be verified, resulting in more beneficial on-chain scenarios for individuals, such as self-authentication, social overlapping, commercial value generation from user targeting, etc.</p>
-<h4 id="data-layer">Data Layer<a class="headerlink" href="#data-layer" title="Permanent link">&para;</a></h4>
+<h5 id="data_layer">Data Layer<a class="headerlink" href="#data_layer" title="Permanent link">#</a></h5>
 <p>In a trustless reputation system, the data layer is a fundamental component that ensures the integrity, availability, and verifiability of the reputation data across a decentralized network. A trustless environment operates without the need for a central authority or trusted intermediary, relying instead on cryptographic techniques and decentralized consensus mechanisms to secure and validate transactions and interactions. Here's how the data layer in a trustless reputation system typically functions:</p>
 <ul>
 <li>
@@ -207,7 +207,7 @@
 <p><strong>Governance</strong>: A clear governance framework is needed to manage changes to the reputation system and resolve disputes. This is typically achieved through decentralized autonomous organizations (DAOs) or similar structures where stakeholders can propose and vote on decisions.</p>
 </li>
 </ul>
-<h4 id="computation-layer-tee">Computation Layer (TEE):<a class="headerlink" href="#computation-layer-tee" title="Permanent link">&para;</a></h4>
+<h5 id="computation_layer_tee">Computation Layer (TEE):<a class="headerlink" href="#computation_layer_tee" title="Permanent link">#</a></h5>
 <p>A Trusted Execution Environment (TEE) is a secure area of a device's processor that provides a protected environment for running sensitive code and processing sensitive data. It ensures that the code and data within the TEE are isolated from the rest of the device, making it difficult for unauthorized parties to access or tamper with them.</p>
 <p>Key components of a TEE include:</p>
 <ul>
@@ -224,7 +224,7 @@
 <li><strong>Machine learning algorithms</strong>: for making predictions or classifications based on data.</li>
 <li><strong>Simulation and modeling tools</strong>: for simulating or modeling real-world systems or processes.</li>
 </ul>
-<h4 id="execution-layer">Execution Layer<a class="headerlink" href="#execution-layer" title="Permanent link">&para;</a></h4>
+<h5 id="execution_layer">Execution Layer<a class="headerlink" href="#execution_layer" title="Permanent link">#</a></h5>
 <p>The execution layer serves a critical role in ensuring that transactions and interactions are conducted securely and fairly without the need for a trusted third party. Here's how this type of execution layer typically works and functions.</p>
 <p>Key Components and Features:</p>
 <ul>
@@ -259,7 +259,7 @@
 <p><strong>Peer Verification</strong>: Peers in the network frequently perform checks on each other's behavior, such as completing tasks or maintaining service levels, contributing to the overall trustworthiness of the network.</p>
 </li>
 </ul>
-<h4 id="settlement-layer">Settlement Layer<a class="headerlink" href="#settlement-layer" title="Permanent link">&para;</a></h4>
+<h5 id="settlement_layer">Settlement Layer<a class="headerlink" href="#settlement_layer" title="Permanent link">#</a></h5>
 <p>A settlement layer is a mechanism that facilitates the resolution of disputes and the settlement of transactions in a trustless reputation system. It's a layer that sits on top of the underlying reputation system, providing a way to resolve conflicts and update reputation scores in a fair and transparent manner.</p>
 <p>Key functions of a settlement layer:</p>
 <ul>
@@ -276,7 +276,7 @@
 <li><strong>Scalability</strong>: The settlement layer should be designed to handle a large volume of disputes and reputation score updates efficiently.</li>
 <li><strong>Incentive alignment</strong>: The settlement layer should be designed to align incentives with honest behavior, ensuring that entities are motivated to maintain a good reputation.</li>
 </ul>
-<h4 id="consensus-layer">Consensus Layer<a class="headerlink" href="#consensus-layer" title="Permanent link">&para;</a></h4>
+<h5 id="consensus_layer">Consensus Layer<a class="headerlink" href="#consensus_layer" title="Permanent link">#</a></h5>
 <p>In a trustless reputation system, a consensus layer plays a crucial role in achieving consensus among different nodes or participants, despite the absence of a central authority. This is achieved through a consensus mechanism, which ensures all participants agree on the state and validity of transactions or information. Here's a brief overview of how the consensus layer works in a trustless reputation system:</p>
 <ul>
 <li>
