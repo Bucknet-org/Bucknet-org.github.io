@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>C.R.E.D.I.T Score - Bucknet Org</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "C.R.E.D.I.T Score";
+        var mkdocs_page_input_path = "credit/credit_framework.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Bucknet Org
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Intro</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Consensus</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../consensus/history/">History</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../consensus/architecture_overview/">Architecture Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../consensus/por/">Proof of Reputation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architecture/architecture/">Architecture</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Credit Framework</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">C.R.E.D.I.T Score</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1_collateral_25_points">1. Collateral (25 Points)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2_repayment_history_25_points">2. Repayment History (25 Points)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3_engagement_15_points">3. Engagement (15 Points)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4_diversification_risk_-_behavior_framework_scoring_10_points">4. Diversification Risk - Behavior Framework Scoring !! (10 Points)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5_identity_verification_15_points">5. Identity Verification (15 Points)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6_time_in_network_10_points">6. Time in Network (10 Points)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#total_score_100_points">Total Score: 100 Points</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next_step">Next step</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#further_study">Further study:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#references">References:</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Bucknet Org</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Credit Framework</li>
+      <li class="breadcrumb-item active">C.R.E.D.I.T Score</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><strong>Trustless Score Idealization</strong></p>
+<p>To bridge the gap between traditional banking credit assessments and the decentralized world of cryptocurrencies, we can develop a comprehensive credit scoring framework for crypto addresses. This system aims to evaluate the creditworthiness of an address based on on-chain data, mirroring the factors banks consider when assessing individual credit scores.</p>
+<p>Here is the proposed framework for such system with the tech debt that will entail.</p>
+<hr />
+<h2 id="the_credit_score"><strong>The C.R.E.D.I.T. Score</strong><a class="headerlink" href="#the_credit_score" title="Permanent link">#</a></h2>
+<p>The C.R.E.D.I.T. Score is a 100-point system that evaluates a crypto address across six key dimensions:</p>
+<ol>
+<li><strong>Collateral (25 points)</strong></li>
+<li><strong>Repayment History (25 points)</strong></li>
+<li><strong>Engagement (15 points)</strong></li>
+<li><strong>Diversity of Assets (10 points)</strong></li>
+<li><strong>Identity Verification (15 points)</strong></li>
+<li><strong>Time in Network (10 points)</strong></li>
+</ol>
+<hr />
+<h3 id="1_collateral_25_points"><strong>1. Collateral (25 Points)</strong><a class="headerlink" href="#1_collateral_25_points" title="Permanent link">#</a></h3>
+<p><strong>Interpretation:</strong> This dimension assesses the financial strength of an address by evaluating the value and quality of assets that can be used as collateral.</p>
+<p><strong>Indicators:</strong></p>
+<ul>
+<li>
+<p><strong>Total Asset Value:</strong> The USD equivalent of all assets held in the address.
+(For prototype we can scan asset on BSC for now)</p>
+</li>
+<li>
+<p><strong>Liquidity of Assets:</strong> Proportion of assets that are easily convertible to cash (e.g., stablecoins, top-tier cryptocurrencies).
+(When looking at Asset, we will give stablecoins a higher weight to this score following by bluechip coin ETH, BTC)</p>
+</li>
+<li>
+<p><strong>Collateralization (LTV) Ratio:</strong> The ratio of collateral value to the amount borrowed on DeFi platforms.
+(Need to look at multiple lending protocol and scan their collateral token to define this)</p>
+</li>
+</ul>
+<p><strong>-&gt;  Tech Debt for Collateral Part :</strong></p>
+<ul>
+<li>Asset scannning </li>
+<li>Total Asset Value on Chain </li>
+<li>Categorize on-chain asset type and define weight to them </li>
+<li>Understand the top on chain lending protocol and define their what token is being used as collateral token and determine their conversion rate (how much ETH is being deposit correspond to how much lama-ETH that got back from the protocal) This is protocol based and suspect that this is a case by case rate.</li>
+</ul>
+<hr />
+<h3 id="2_repayment_history_25_points"><strong>2. Repayment History (25 Points)</strong><a class="headerlink" href="#2_repayment_history_25_points" title="Permanent link">#</a></h3>
+<p><strong>Interpretation:</strong> This dimension examines the address's history of fulfilling financial obligations, similar to payment history in traditional credit scoring. However, since most of lending protocols are using overcollaterize model, we can only fault them if we can detect liquidation and debt utilization as debt repayment is handle by protocol conversion rate (token-collaterized token)</p>
+<p><strong>Indicators:</strong></p>
+<ul>
+<li><strong>Default Instances:</strong> Number of times the address has defaulted or been liquidated.</li>
+<li><strong>Debt Utilization:</strong> The proportion of credit used relative to the total available credit.</li>
+</ul>
+<p><strong>-&gt;  Tech Debt for Repayment Part :</strong></p>
+<ul>
+<li>Find out what happened when an address is being liqudated on a lending-leveraging platform (for instance we can try getting liquidated on purpose on https://www.alpacafinance.org/ and see)</li>
+<li>Token - Collaterized Token Ratio and calculate how much money is being leveraged on yield farming or others usages. (Hard)</li>
+</ul>
+<hr />
+<h3 id="3_engagement_15_points"><strong>3. Engagement (15 Points)</strong><a class="headerlink" href="#3_engagement_15_points" title="Permanent link">#</a></h3>
+<p><strong>Interpretation:</strong> Measures the address's active participation in the crypto ecosystem, indicating experience and reliability.</p>
+<p><strong>Indicators:</strong></p>
+<ul>
+<li><strong>Active Days/Months:</strong> Number of days or months with at least one transaction.</li>
+<li><strong>Transaction Frequency:</strong> Average number of transactions per week or month.</li>
+<li><strong>Total Protocol Usage:</strong> Number of different DeFi platforms interacted with, especially lending and borrowing services.</li>
+<li><strong>Healthy Smart Contract Interactions:</strong> Engagement with healthy smart contracts, showing advanced usage.</li>
+<li><strong>Blacklist Contract Interactions:</strong> Engagement with money laundering/privacy smart contracts (this can be use as a minus point)</li>
+<li><strong>Compromised Contract Interactions:</strong> Engagement with compromised smart contracts (this can be use as a minus point)</li>
+</ul>
+<p><strong>-&gt;  Tech Debt for Engagement Part :</strong></p>
+<ul>
+<li>Find all of the popular lending and borrowing Defi platform for each of the network that we aim to score on</li>
+<li>Hard code smart contract address ???</li>
+<li>How should we black list smart contract ??</li>
+<li>How compromised smart contract will be updated in the system.</li>
+</ul>
+<hr />
+<h3 id="4_diversification_risk_-_behavior_framework_scoring_10_points"><strong>4. Diversification Risk - Behavior Framework Scoring !! (10 Points)</strong><a class="headerlink" href="#4_diversification_risk_-_behavior_framework_scoring_10_points" title="Permanent link">#</a></h3>
+<p><strong>Interpretation:</strong> Assesses the address's asset diversification, reflecting sound investment strategies and risk management.</p>
+<p><strong>Indicators:</strong></p>
+<ul>
+<li><strong>Asset Classes:</strong> Variety of asset types held (e.g., cryptocurrencies, tokens, NFTs).</li>
+<li><strong>Cross-Chain Holdings:</strong> Assets held across multiple blockchain networks.</li>
+</ul>
+<p><strong>-&gt;  Tech Debt for Diversity Part :</strong></p>
+<ul>
+<li>This is the hardest to give a hard code rule for !!! even though it is easy to implement</li>
+</ul>
+<hr />
+<h3 id="5_identity_verification_15_points"><strong>5. Identity Verification (15 Points)</strong><a class="headerlink" href="#5_identity_verification_15_points" title="Permanent link">#</a></h3>
+<p><strong>Interpretation:</strong> Establishes the credibility of the address through identity proofs and reputation systems.</p>
+<p><strong>Indicators:</strong></p>
+<ul>
+<li><strong>KYC/AML Compliance:</strong> Completion of Know Your Customer (KYC) and Anti-Money Laundering (AML) checks on reputable platforms.</li>
+<li><strong>Decentralized Identifiers (DIDs):</strong> Ownership of verified decentralized identities like ENS domains or Lens Protocol profiles.</li>
+<li><strong>Social Proofs:</strong> Verification through social platforms linked to the address.</li>
+</ul>
+<p><strong>-&gt;  Tech Debt for Identity Part :</strong></p>
+<ul>
+<li>All this layer is already a tech debt in module planning</li>
+<li>Allocating weight for each of the identitity layers</li>
+</ul>
+<hr />
+<h3 id="6_time_in_network_10_points"><strong>6. Time in Network (10 Points)</strong><a class="headerlink" href="#6_time_in_network_10_points" title="Permanent link">#</a></h3>
+<p><strong>Interpretation:</strong> Considers the longevity and consistency of the address's activity in the blockchain network.</p>
+<p><strong>Indicators:</strong></p>
+<ul>
+<li><strong>Account Age:</strong> Duration since the first recorded transaction.</li>
+<li><strong>Historical Participation:</strong> Early involvement in significant network events or protocols.</li>
+</ul>
+<p><strong>-&gt;  Tech Debt for Time Part :</strong></p>
+<ul>
+<li>Age is easy to do</li>
+<li>Historical Participation entails we know what has,is and will happen on chain ( What airdrops, genesis event, reward for testing protocal, ....)</li>
+</ul>
+<hr />
+<h4 id="total_score_100_points"><strong>Total Score: 100 Points</strong><a class="headerlink" href="#total_score_100_points" title="Permanent link">#</a></h4>
+<p>Each dimension contributes to a comprehensive view of the address's creditworthiness, similar to how traditional banks assess individual credit scores.</p>
+<hr />
+<h4 id="next_step"><strong>Next step</strong><a class="headerlink" href="#next_step" title="Permanent link">#</a></h4>
+<p>After agreeing on the above idealization, tasks can be handle to each team members in Data/Computation team to start on the technical debt described.</p>
+<h3 id="further_study">Further study:<a class="headerlink" href="#further_study" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://medium.com/@trustalabs.ai/trustas-ai-and-machine-learning-framework-for-robust-sybil-resistance-in-airdrops-ba17059ec5b7"> AI and Machine Learning Framework for Robust Sybil Resistance</a></li>
+<li><a href="https://medium.com/@trustalabs.ai/trustas-proof-of-innocence-program-fighting-back-against-poisoning-675db7c5e14b">Proof of Innocence Program</a></li>
+</ul>
+<h3 id="references">References:<a class="headerlink" href="#references" title="Permanent link">#</a></h3>
+<ul>
+<li><a href=":https://trusta-labs.gitbook.io/trustalabs/">Trustalab Docs</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../architecture/architecture/" class="btn btn-neutral float-left" title="Architecture"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../architecture/architecture/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
